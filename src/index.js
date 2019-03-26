@@ -18,10 +18,9 @@ const makeDiffs = (objectBefore, objectAfter) => {
     if (keysBefore.includes(key)) {
       if (keysAfter.includes(key)) {
         return `  + ${key}: ${objectAfter[key]}\n  - ${key}: ${objectBefore[key]}`;
-      } else{
-      return `  - ${key}: ${objectBefore[key]}`
-      };
-    }
+      }
+      return `  - ${key}: ${objectBefore[key]}`;
+}
     return `  + ${key}: ${objectAfter[key]}`;
   });
   return `{\n${mapped.join('\n')}\n}`;
