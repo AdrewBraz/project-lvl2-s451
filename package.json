@@ -1,6 +1,6 @@
 {
   "name": "difference_calc",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "Hexlet project #2",
   "main": "dist/index.js",
   "bin": {
@@ -39,5 +39,8 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^2.19.0",
+    "lodash": "^4.17.11"
+  }
 }
