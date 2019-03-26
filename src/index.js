@@ -1,10 +1,11 @@
 import fs from 'fs';
 import _ from 'lodash';
+import path from 'path';
+import parse from './parsers';
 
 const getObject = (pathToFile) => {
-  const parse = obj => JSON.parse(obj);
-  const jsonFile = fs.readFileSync(pathToFile, 'utf8');
-  return parse(jsonFile);
+  const ext = path.extname(pathToFile);
+  return parse(ext, fs.readFileSync(pathToFile, 'utf8'));
 };
 
 const makeDiffs = (objectBefore, objectAfter) => {
