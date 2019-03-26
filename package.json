@@ -1,12 +1,13 @@
 {
   "name": "difference_calc",
-  "version": "0.0.43",
+  "version": "0.0.51",
   "description": "Hexlet project #2",
   "main": "dist/index.js",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
   },
   "scripts": {
+    "test": "jest --watch",
     "build": "cross-env NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
@@ -27,6 +28,9 @@
   "bugs": {
     "url": "https://github.com/AdrewBraz/project-lvl2-s451/issues"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "homepage": "https://github.com/AdrewBraz/project-lvl2-s451#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -34,10 +38,13 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.2",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.5.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0"
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "jest": "^24.5.0"
   },
   "dependencies": {
     "commander": "^2.19.0",
