@@ -15,17 +15,19 @@ const PathToexpectedJson = '__tests__/__fixtures__/expectedJsonString.txt';
 const PathToexpectedYml = '__tests__/__fixtures__/expectedYmlString.txt';
 const PathToexpectedIni = '__tests__/__fixtures__/expectedIniString.txt';
 const PathToexpectedTree = '__tests__/__fixtures__/expectedTree.txt';
+const PathToexpectedPlain = '__tests__/__fixtures__/expectedPlainString.txt';
 
 
 test.each([
-  [PathToBeforeJSON, PathToAfterJSON, PathToexpectedJson],
-  [PathToBeforeYml, PathToAfterYml, PathToexpectedYml],
-  [PathToBeforeIni, PathToAfterIni, PathToexpectedIni],
-  [PathToBeforeJSONTree, PathToAfterJSONTree, PathToexpectedTree],
+  ['tree', PathToBeforeJSON, PathToAfterJSON, PathToexpectedJson],
+  ['tree', PathToBeforeYml, PathToAfterYml, PathToexpectedYml],
+  ['tree', PathToBeforeIni, PathToAfterIni, PathToexpectedIni],
+  ['tree', PathToBeforeJSONTree, PathToAfterJSONTree, PathToexpectedTree],
+  ['plain', PathToBeforeJSONTree, PathToAfterJSONTree, PathToexpectedPlain],
 ])(
   'diff test',
-  (before, after, pathToExpected) => {
+  (format, before, after, pathToExpected) => {
     const result = readFileSync(pathToExpected, 'utf8');
-    expect(genDiff(before, after)).toEqual(result);
+    expect(genDiff(before, after, format)).toEqual(result);
   },
 );
