@@ -5,8 +5,8 @@ const addTabs = level => ' '.repeat(2 * level);
 const makeValue = (data, level) => {
   if (!(data instanceof Object)) return data;
   const openTab = addTabs(level + 1);
-  const closTab = addTabs(level);
-  return `{\n${[...Object.keys(data)].map(key => `${openTab}${key}: ${data[key]}`)}\n${closTab}}`;
+  const closeTab = addTabs(level + 1);
+  return `{\n  ${[...Object.keys(data)].map(key => `${openTab}${key}: ${data[key]}`)}\n${closeTab}}`;
 };
 
 const render = (ast) => {
@@ -26,7 +26,7 @@ const render = (ast) => {
       case 'unchanged':
         return `${tab}  ${key}: ${resultValue}`;
       case 'node':
-        return `${tab}${key}: {\n${_.flatten(iter(children, level + 1)).join('\n')}\n${tab}}`;
+        return `  ${tab}${key}: {\n${_.flatten(iter(children, level + 1)).join('\n')}\n${tab}  }`;
       default:
         return null;
     }

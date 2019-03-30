@@ -7,7 +7,7 @@ const render = (ast) => {
     } = item;
     switch (type) {
       case 'added':
-        return `Property of ${pathTo}${key} was added with value ${makeValue(value)}`;
+        return `Property of ${pathTo}${key} was added with value: ${makeValue(value)}`;
       case 'deleted':
         return `Property of ${pathTo}${key} was removed`;
       case 'changed':
