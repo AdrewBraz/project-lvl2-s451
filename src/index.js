@@ -2,7 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
 import builder from './builder';
-import render from './render';
+import renderTree from './renders/tree';
+import renderPlain from './renders/plain';
+
+const renderFormats = {
+  tree: renderTree,
+  plain: renderPlain,
+};
+
+const getRender = format => renderFormats[format];
 
 const getObject = (pathToFile) => {
   const ext = path.extname(pathToFile);
@@ -11,10 +19,11 @@ const getObject = (pathToFile) => {
 
 const makeDiffs = (objectBefore, objectAfter) => builder(objectBefore, objectAfter);
 
-const genDiff = (pathToFile1, pathToFile2) => {
+const genDiff = (pathToFile1, pathToFile2, format) => {
   const firstObject = getObject(pathToFile1);
   const secondObject = getObject(pathToFile2);
   const ast = makeDiffs(firstObject, secondObject);
+  const render = getRender(format);
   const difference = render(ast);
   return difference;
 };

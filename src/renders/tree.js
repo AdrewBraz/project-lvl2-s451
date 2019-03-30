@@ -28,6 +28,7 @@ const render = (ast) => {
       case 'node':
         return `${tab}${key}: {\n${_.flatten(iter(children, level + 1)).join('\n')}\n${tab}}`;
       default:
+        return null;
     }
   });
   return `{\n${(_.flatten(iter(ast, 2))).join('\n')}\n}`;

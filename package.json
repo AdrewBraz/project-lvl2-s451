@@ -1,6 +1,6 @@
 {
   "name": "difference_calc",
-  "version": "0.0.8",
+  "version": "0.0.91",
   "description": "Hexlet project #2",
   "main": "dist/index.js",
   "bin": {
