@@ -22,7 +22,7 @@ const render = (ast) => {
       case 'deleted':
         return `${tab}- ${key}: ${resultValue}`;
       case 'changed':
-        return [`${tab}+ ${key}: ${makeValue(value[0], level + 1)}`, `${tab}- ${key}: ${makeValue(value[1], level + 1)}`];
+        return [`${tab}+ ${key}: ${makeValue(value[1], level + 1)}`, `${tab}- ${key}: ${makeValue(value[0], level + 1)}`];
       case 'unchanged':
         return `${tab}  ${key}: ${resultValue}`;
       case 'node':
