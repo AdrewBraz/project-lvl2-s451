@@ -10,7 +10,7 @@ const makeValue = (data, level) => {
 };
 
 const render = (ast) => {
-  const iter = (data, level = 2) => data.map((item) => {
+  const iter = (data, level) => data.map((item) => {
     const tab = addTabs(level);
     const {
       key, value, children, type,
@@ -31,7 +31,7 @@ const render = (ast) => {
         return null;
     }
   });
-  return `{\n${(_.flatten(iter(ast, 2))).join('\n')}\n}`;
+  return `{\n${(_.flatten(iter(ast, 1))).join('\n')}\n}`;
 };
 
 export default render;
