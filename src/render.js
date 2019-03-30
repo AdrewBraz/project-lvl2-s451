@@ -1,0 +1,36 @@
+import _ from 'lodash';
+
+const addTabs = level => ' '.repeat(2 * level);
+
+const makeLine = (data, level) => {
+  if (!(data instanceof Object)) return data;
+  const openTab = addTabs(level + 1);
+  const closTab = addTabs(level);
+  return `{\n${[...Object.keys(data)].map(key => `${openTab}${key}: ${data[key]}`)}\n${closTab}}`;
+};
+
+const render = (ast) => {
+  const iter = (data, level = 2) => data.map((item) => {
+    const tab = addTabs(level);
+    const {
+      key, value, children, type,
+    } = item;
+    const resultLine = makeLine(value, level);
+    switch (type) {
+      case 'added':
+        return `${tab}+ ${key}: ${resultLine}`;
+      case 'deleted':
+        return `${tab}- ${key}: ${resultLine}`;
+      case 'changed':
+        return [`${tab}+ ${key}: ${makeLine(value[0], level + 1)}`, `${tab}- ${key}: ${makeLine(value[1], level + 1)}`];
+      case 'unchanged':
+        return `${tab}  ${key}: ${resultLine}`;
+      case 'node':
+        return `${tab}${key}: {\n${_.flatten(iter(children, level + 1)).join('\n')}\n${tab}}`;
+      default:
+    }
+  });
+  return `{\n${(_.flatten(iter(ast, 2))).join('\n')}\n}`;
+};
+
+export default render;
