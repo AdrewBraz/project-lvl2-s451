@@ -16,6 +16,7 @@ const PathToexpectedYml = '__tests__/__fixtures__/expectedYmlString.txt';
 const PathToexpectedIni = '__tests__/__fixtures__/expectedIniString.txt';
 const PathToexpectedTree = '__tests__/__fixtures__/expectedTree.txt';
 const PathToexpectedPlain = '__tests__/__fixtures__/expectedPlainString.txt';
+const PathToexpectedJsonFormat = '__tests__/__fixtures__/expectedJson.txt';
 
 
 test.each([
@@ -24,6 +25,7 @@ test.each([
   ['tree', PathToBeforeIni, PathToAfterIni, PathToexpectedIni],
   ['tree', PathToBeforeJSONTree, PathToAfterJSONTree, PathToexpectedTree],
   ['plain', PathToBeforeJSONTree, PathToAfterJSONTree, PathToexpectedPlain],
+  ['json', PathToBeforeJSONTree, PathToAfterJSONTree, PathToexpectedJsonFormat],
 ])(
   'diff test',
   (format, before, after, pathToExpected) => {

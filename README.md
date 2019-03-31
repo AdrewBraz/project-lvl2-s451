@@ -1,5 +1,9 @@
 # Difference Calculator
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/801468a8ac986fe32787/maintainability)](https://codeclimate.com/github/AdrewBraz/project-lvl2-s451/maintainability)
+
+[![Build Status](https://travis-ci.org/AdrewBraz/project-lvl2-s451.svg?branch=master)](https://travis-ci.org/AdrewBraz/project-lvl2-s451)
+
 ## Instalation
 [![asciicast](https://asciinema.org/a/lQ2GzmdCCT6A0Jj3tG8XbSgSi.svg)](https://asciinema.org/a/lQ2GzmdCCT6A0Jj3tG8XbSgSi)
 
@@ -14,7 +18,3 @@
 
 ### Help
 [![asciicast](https://asciinema.org/a/cjOugPhzuUP5QaN1okociWcoU.svg)](https://asciinema.org/a/cjOugPhzuUP5QaN1okociWcoU)
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/801468a8ac986fe32787/maintainability)](https://codeclimate.com/github/AdrewBraz/project-lvl2-s451/maintainability)
-
-[![Build Status](https://travis-ci.org/AdrewBraz/project-lvl2-s451.svg?branch=master)](https://travis-ci.org/AdrewBraz/project-lvl2-s451)
