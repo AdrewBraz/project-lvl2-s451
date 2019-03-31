@@ -2,15 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
 import builder from './builder';
-import renderTree from './renders/tree';
-import renderPlain from './renders/plain';
+import getRender from './renderers';
 
-const renderFormats = {
-  tree: renderTree,
-  plain: renderPlain,
-};
-
-const getRender = format => renderFormats[format];
 
 const getObject = (pathToFile) => {
   const ext = path.extname(pathToFile);

@@ -15,7 +15,9 @@ const builder = (dataBefore, dataAfter) => {
       case (dataBefore[key] === dataAfter[key]):
         return { key, value: dataBefore[key], type: 'unchanged' };
       default:
-        return { key, value: [dataBefore[key], dataAfter[key]], type: 'changed' };
+        return {
+          key, valueBefore: dataBefore[key], valueAfter: dataAfter[key], type: 'changed',
+        };
     }
   });
   return result;
